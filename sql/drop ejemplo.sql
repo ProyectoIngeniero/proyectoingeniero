@@ -1,0 +1,9 @@
+drop table Oferta
+drop table OfertaTransporte
+drop table Provincia
+drop table TipoBien
+drop table Transporte
+drop table TipoTransporte
+drop table ComunidadAutonoma
+drop table Cliente
+drop table Comercial
