@@ -102,8 +102,31 @@
 --		inner join Provincia on Oferta.Prv_ID = Provincia.Prv_ID
 --				and Provincia.Prv_nombre = 'Barcelona'
 
-select avg(OF_Precio), Provincia.Prv_Nombre
-from Oferta
-		inner join  Provincia on Oferta.Prv_ID = Provincia.Prv_ID
-group by Provincia.Prv_Nombre
-where avg(OF_Precio) > 100000
+--select avg(OF_Precio), Provincia.Prv_Nombre
+--from Oferta
+--		inner join  Provincia on Oferta.Prv_ID = Provincia.Prv_ID
+--group by Provincia.Prv_Nombre
+--where avg(OF_Precio) > 100000
+
+--select distinct(Prv_Nombre)
+--from Oferta
+--	   inner join Provincia on Oferta.Prv_ID = Provincia.Prv_ID
+
+--select count(Prv_Nombre) cantidad, Prv_Nombre
+--from Oferta
+--		inner join Provincia on Oferta.Prv_ID = Provincia.Prv_ID
+--group by Prv_Nombre
+
+--update Comercial
+--set Com_Dirección = 'C/Esplandiu, 5'
+--where Com_NIF = '11323K'
+
+--select Com_NIF, Com_Dirección
+--from Comercial
+--where Com_NIF = '11323K'
+
+update Comercial
+set Com_Categoria = '4'
+from Comercial, Provincia
+where Comercial.Prv_ID = Provincia.Prv_ID
+		and Prv_Nombre = 'Madrid'
