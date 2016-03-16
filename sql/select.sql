@@ -50,10 +50,60 @@
 --from vInmuebles
 --WHERE Of_Transaccion = 'A' and TB_Nombre = 'Piso' and Prv_Nombre = 'Madrid'
 
-select OF_Precio
-from OfertaTransporte 
-	inner join Oferta on OfertaTransporte.Of_ID = Oferta.OF_ID
-	inner join Transporte on OfertaTransporte.Tr_ID = Transporte.Tr_ID
-	inner join TipoTransporte on Transporte.TT_ID = TipoTransporte.TT_ID
-			and (TipoTransporte.TT_Nombre = 'Metro'
-				    or Tipotransporte.TT_Nombre = 'Cercanias')
+--select OF_Precio
+--from OfertaTransporte 
+--	inner join Oferta on OfertaTransporte.Of_ID = Oferta.OF_ID
+--	inner join Transporte on OfertaTransporte.Tr_ID = Transporte.Tr_ID
+--	inner join TipoTransporte on Transporte.TT_ID = TipoTransporte.TT_ID
+--			and (TipoTransporte.TT_Nombre = 'Metro'
+--				    or Tipotransporte.TT_Nombre = 'Cercanias')
+
+--select Cliente.Cli_Nombre
+--from Cliente
+--		left outer join Oferta on Oferta.Cli_NIF = Cliente.Cli_NIF
+--where Oferta.Cli_NIF is null
+
+--select Cliente.Cli_NIF
+--from Cliente
+--where Cli_NIF not in (select Cli_NIF from Oferta)
+
+--select top 1 OF_Direccion, Of_Precio
+--from Oferta
+--order by OF_Precio desc
+
+--select max(OF_Precio)
+--from Oferta
+
+--select min(OF_Precio)
+--from Oferta 
+--		inner join Provincia on Provincia.Prv_ID = Oferta.Prv_ID and 
+--Provincia.Prv_Nombre = 'Madrid'
+
+--select sum(OF_Precio)
+--from Oferta
+--		inner join Cliente on Oferta.Cli_NIF = Cliente.Cli_NIF
+--		and Cliente.Cli_Apellidos like 'Marti%'
+
+--select count(*)
+--from Oferta
+
+--select count(*)
+--from Oferta
+--		inner join Provincia on Oferta.Prv_ID = Provincia.Prv_ID
+--				and Provincia.Prv_nombre = 'Barcelona'
+
+--select avg(OF_Precio)
+--from Oferta
+--		inner join Provincia on Oferta.Prv_ID = Provincia.Prv_ID
+--				and Provincia.Prv_nombre = 'Barcelona'
+
+--select sum(OF_Precio) / count(OF_Precio) as media
+--from Oferta
+--		inner join Provincia on Oferta.Prv_ID = Provincia.Prv_ID
+--				and Provincia.Prv_nombre = 'Barcelona'
+
+select avg(OF_Precio), Provincia.Prv_Nombre
+from Oferta
+		inner join  Provincia on Oferta.Prv_ID = Provincia.Prv_ID
+group by Provincia.Prv_Nombre
+where avg(OF_Precio) > 100000
