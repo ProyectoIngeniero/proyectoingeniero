@@ -125,8 +125,80 @@
 --from Comercial
 --where Com_NIF = '11323K'
 
-update Comercial
-set Com_Categoria = '4'
-from Comercial, Provincia
-where Comercial.Prv_ID = Provincia.Prv_ID
-		and Prv_Nombre = 'Madrid'
+--update Comercial
+--set Com_Categoria = '4'
+--from Comercial, Provincia
+--where Comercial.Prv_ID = Provincia.Prv_ID
+--		and Prv_Nombre = 'Madrid'
+
+--select Com_Categoria, Prv_Nombre
+--from Comercial, Provincia
+--where Comercial.Prv_ID = Provincia.Prv_ID
+
+--update Cliente
+--set Cli_Direccion = 'C/Apache 35', Cli_Telefono = '912237878'
+--where Cli_Nombre = 'Juan Jose' and Cli_Apellidos = 'Martinez'
+
+--select *
+--from Cliente
+--where Cli_Nombre = 'Juan Jose' and Cli_Apellidos = 'Martinez'
+
+--select Of_Precio, Prv_Nombre
+--from Oferta
+--		inner join Provincia on Provincia.Prv_ID = Oferta.Prv_ID
+--where Prv_Nombre = 'Barcelona'
+
+--update Oferta
+--set OF_Precio = OF_Precio + (OF_Precio * 0.05)
+--from Oferta, Provincia
+--where Provincia.Prv_ID = Oferta.Prv_ID and Prv_Nombre = 'Barcelona'
+
+--select count(*) as cantidad, Com_Nombre
+--from Comercial
+--		left outer join Oferta on Oferta.Com_NIF = Comercial.Com_NIF
+--group by Comercial.Com_Nombre
+
+--update Comercial
+--set Com_Categoria = ((select count(*) / 2 
+--					  from Oferta
+--					  where Comercial.Com_NIF  = Oferta.Com_NIF) +
+--					 (select count(*) % 2
+--					  from Oferta
+--					  where Comercial.Com_NIF = Oferta.Com_NIF))
+					  
+--select Com_Nombre, Com_Categoria
+--from Comercial
+
+--delete from Oferta
+--where OF_ID = 11
+
+--select max(OF_ID)
+--from Oferta
+
+--delete from Oferta
+--from Comercial
+--where Oferta.Com_NIF = Comercial.Com_NIF
+--	 and Com_Nombre = 'Luis' and Com_Apellido= 'Canto'
+
+--delete From Comercial
+--where Com_Nombre = 'Luis' and Com_Apellido = 'Canto'
+
+--truncate table Cliente
+
+--delete from OfertaTransporte
+--where OF_ID in (select OF_ID
+--				from Oferta
+--				where Prv_ID in (select Prv_ID
+--								 from ComunidadAutonoma, Provincia
+--								 where ComunidadAutonoma.CA_Nombre = 'Catalunya'
+--								 and ComunidadAutonoma.CA_ID = Provincia.CA_ID))
+
+--delete Oferta
+--from (Select top 2 * from Oferta) as t
+--where t.OF_ID = OfertaTransporte.OF_ID
+
+--sp_who
+
+--sp_tables
+
+sp_columns Cliente
