@@ -201,4 +201,24 @@
 
 --sp_tables
 
-sp_columns Cliente
+--sp_columns Cliente
+
+--exec sp_insertar_TipoTransporte 1, 'Metro'
+--exec sp_insertar_TipoTransporte 4, 'Tranvia'
+
+--declare @error char(1)
+--exec sp_insertar_Tipotransporte 5, 'Aeropuerto', @error output
+--select @error
+
+--exec sp_Hay_Comerciales 'Barcelona'
+
+--exec ('select * from Provincia')
+
+--exec sp_Clientes Madrid, 28023
+
+--select cast('01/01/01' as datetime)
+
+--select convert(datetime, '01/01/01')
+
+exec sp_ActualizarComercial
+
