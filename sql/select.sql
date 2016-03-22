@@ -220,5 +220,32 @@
 
 --select convert(datetime, '01/01/01')
 
-exec sp_ActualizarComercial
+--exec sp_ActualizarComercial
 
+--select *
+--from ave
+
+--select nombre
+--from arbol inner join arbol_region on arbol.cod_arbol = arbol_region.cod_arbol
+--inner join region on arbol_region.cod_region = region.cod_region
+--where region.desc_region = 'centro'
+
+--select nombre
+--from arbol, arbol_region, region
+--where region.desc_region = 'centro'
+--and region.cod_region = arbol_region.cod_region
+--and arbol_region.cod_arbol = arbol.cod_arbol
+
+--select count(*) as cantidad_aves
+--from ave
+--where migratoria = 1
+
+--select ave.nombre
+--from ave, arbol, ave_arbol
+--where arbol.tipo_hoja = 'Caduca'
+--and ave.cod_ave = ave_arbol.cod_ave
+--and ave_arbol.cod_arbol = arbol.cod_arbol
+--order by ave.nombre
+
+select *
+from migratorias
